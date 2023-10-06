@@ -12,6 +12,12 @@ pipeline {
                 echo 'Unit Testing is Done here..'
             }
         }
+        stage('sonar scan') {
+            steps {
+                sh 'ls -ltr'
+                sh 'sonar-scanner'
+            }
+        }
     }
     post { 
         always { 
