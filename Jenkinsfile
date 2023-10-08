@@ -1,5 +1,9 @@
 pipeline {
     agent { node { label 'Agent-1' } }
+    
+    options {
+        ansiColor('xterm')
+    }
 
     stages {
         stage('Install Dependencies') {
@@ -45,10 +49,5 @@ type: 'zip']
             }
         }
     }
-    post { 
-        always { 
-            echo 'cleaning-up workspace'
-            deleteDir()
-        }
-    }
+
 }
